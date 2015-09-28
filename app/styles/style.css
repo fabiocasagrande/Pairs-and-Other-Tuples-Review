@@ -1,0 +1,172 @@
+
+body{
+	background-attachment: fixed;
+	text-align: left;
+}
+
+
+#lblQuestion {
+	font-size: 24px;
+}
+
+.btn {
+	margin-top: 12px;
+}
+
+#txtAnswer {
+	font-size: 24px;
+}
+
+#txtFeedback {
+	font-size: 24px;
+}
+
+.answerBlock{
+	width:30px;
+	height:30px;
+	border: 1px inset black;
+	display: inline-block;
+	margin-right: 2px;
+}
+
+.noAnswer{
+	background:white;
+}
+
+.rightAnswer{
+    background:green;
+}
+
+.wrongAnswer{
+    background:red;
+}
+
+th {
+	text-align: center;
+	font-weight: bold;
+	vertical-align: baseline;
+}
+
+
+td {
+	vertical-align: middle;
+}
+
+#fringeTable {
+	border-collapse: separate;
+	border-spacing: 10px;
+}
+
+#history {
+	height: 100px; 
+	width: 500px;
+	position: absolute;
+    top: 80%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);	
+}
+
+#hPos {
+	position: absolute;
+    top: 70%;
+    left: 43%;
+    margin-right: -50%;
+	display:none;
+    transform: translate(-50%, -50%);	
+}
+
+#groupPosition {
+	height: 800px; 
+	width: 800px;
+	position: absolute;
+    top: 80%;
+    left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+
+#btnNextQuestion{
+	position: absolute;
+    top: 20%;
+    left: 50%;
+	display: none;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);	
+}
+
+#btnSubmit{
+	position: absolute;
+    top: 20%;
+    left: 34%;
+	display: none;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+#btnStart{
+	position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-right: -50%;
+	display: block;
+    transform: translate(-50%, -50%);
+}
+
+#lblQuestion{	
+	position: absolute;
+    top: -20%;
+    left:50;
+}
+
+#txtFeedback{
+	position: absolute;
+	top: 320px;
+    left:150px;	
+}
+
+#intro{
+	position: absolute;
+	font-size: 130%;
+	margin-left:180px;
+}
+
+#testTitle{
+
+	font-size: 330%;
+    
+	
+}
+
+#outro{
+	
+	position: absolute;
+	font-size: 130%;
+	margin-left:180px;
+	display:none;
+    
+}
+
+#ok{
+	
+	position: absolute;
+	margin-left:210px;
+	display:none;
+    
+}
+
+
+
+
+#txtAnswer{
+	display: none;
+}
+
+#cont{
+	position:relative;
+	margin-left:center;
+	margin-top: center;
+	height: 800px; 
+	width: 800px;
+}
+
