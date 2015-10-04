@@ -1,66 +1,135 @@
-	
 
 	
-	var lengthQ1=5;
-	var lengthInner=5;
-	var quest=[];
-	var quest1;
-	var quest2;
-	var maxx;
-	var answ;
+/*
+ * Stores the questions, answers and the answer history
+ */
+
+function QuestionBankModel(_simModel, _numerator, _denominator,_quest,_lengthQ1,_lengthInner,_quest1,_quest2,_maxx,_answ) {
+	
+	// save a link to the model
+	this.simModel = _simModel;
+	
+	this.quest= _quest;
+	this.lengthQ1=_lengthQ1;
+	this.lengthInner=_lengthInner;
+	this.quest1=_quest1;
+	this.quest2=_quest2;
+	this.maxx=_maxx;
+	this.answ=_answ;
+	
+	
+	
+	
+	// the number of questions the student needs to answer right...
+	this.numerator = _numerator;
+	// out of this many of the most recent questions asked
+	this.denominator = _denominator;
+	// we need to keep track of the last <x> answers we've gotten
+	// so we can test for mastery. we use an array as a queue that
+	// stores as many answers as we're willing to consider
+	this.resetAnswerHistory();
+	
+}
+		
+
 	
 	
 /*
  * Creates the first part of the question Ex  e=(a,b,c,d) 
  */
-	createQuestionA = function(){
+	QuestionBankModel.prototype.createQuestionA = function(){
 		
-		quest1="( ";
+		this.quest1="( ";
 		var temporary;
 		var inn=0;
-		while(inn<lengthQ1){
+		
+		while(inn<this.lengthQ1){
 			
-			temporary=getRandomInt(0,2);
+			temporary=this.getRandomInt(0,2);
 			
 			if(temporary==0){
 			
-				quest[inn]=getRandomValue();
+				this.quest[inn]=this.getRandomValue();
 				
 			}else{
-				maxx=getRandomInt(2,lengthInner);
-				quest[inn]=getRandomValues(maxx);
+				this.maxx=getRandomInt(2,this.lengthInner);
+				this.quest[inn]=this.getRandomValues(this.maxx);
 			}
 			
-			quest1=quest1+quest[inn];
+			this.quest1=this.quest1+this.quest[inn];
 			
-			if(inn+1!=lengthQ1)
-				quest1=quest1+" , ";
+			if(inn+1!=this.lengthQ1)
+				this.quest1=this.quest1+" , ";
 			
 			inn=inn+1;
 		}
 		
-		quest1=quest1+" )";
+		this.quest1=this.quest1+" )";
+	
 		
 	}
 	
 	
-	getRandomValue = function(){
+	/*
+ * Creates the second part of the question Ex  #1 (2# e)  or  #2 e
+ */
+ 
+   QuestionBankModel.prototype.createQuestionB = function(){
 		
-		var temp_= getListValues();
-		return temp_[getRandomInt(0,temp_.length)];
+		this.answ="";
+		this.quest2="# ";
+		var temp=this.getRandomInt(0,5);
+		
+		
+		if(this.quest[temp].length==1){
+			this.answ=this.quest[temp];
+			temp=temp+1;
+			this.quest2=this.quest2+temp+" e";
+			
+		}else{
+			temp=temp+1;
+			this.quest2=this.quest2+temp+" e ";
+			temp=temp-1;
+			
+			var temp1=this.getRandomInt(0,this.maxx);
+			if(temp1>0){
+				this.quest2="# "+temp1+" ( "+this.quest2+" )";
+				this.answ=this.getSubList(this.quest[temp],temp1);
+				this.answ=this.answ.replace(' ','');
+			}else{
+				this.answ=this.quest[temp];
+			}	
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	QuestionBankModel.prototype.getRandomValue = function(){
+		
+		var temp_= this.getListValues();
+		return temp_[this.getRandomInt(0,temp_.length)];
 		
 	}
 	
 
-	getRandomValues = function(maxLength){
+	QuestionBankModel.prototype.getRandomValues = function(maxLength){
 		
 		var i=0;
 		var temp_="(";
 		
 		while(i<maxLength){
 			
-			temp_=temp_+ getRandomValue();
-				if(i+1!=maxx){
+			temp_=temp_+ this.getRandomValue();
+				if(i+1!=this.maxx){
 					temp_=temp_+",";
 				}
 			i=i+1;
@@ -71,44 +140,16 @@
 	
 	
 	
-	getListValues = function(){
+	QuestionBankModel.prototype.getListValues = function(){
 		
 		return [["0"],["1"],["2"],["3"],["4"],["5"],["6"],["7"],["8"],["9"],["true"],["false"]];
 		
 	}
-	
-/*
- * Creates the second part of the question Ex  #1 (2# e)  or  #2 e
- */
-	createQuestionB = function(){
-		answ="";
-		quest2="# ";
-		var temp=getRandomInt(0,lengthQ1);
-			
-		if(quest[temp].length==1){
-			answ=quest[temp];
-			temp=temp+1;
-			quest2=quest2+temp+" e";
-			
-		}else{
-			temp=temp+1;
-			quest2=quest2+temp+" e ";
-			temp=temp-1;
-			
-			var temp1=getRandomInt(0,maxx);
-			if(temp1>0){
-				quest2="# "+temp1+" ( "+quest2+" )";
-				answ=getSubList(quest[temp],temp1);
-				answ=answ.replace(' ','');
-			}else{
-				answ=quest[temp];
-			}	
-		}
-	}
+
 	
 	
 	
-	function getSubList(str,numero) {
+ QuestionBankModel.prototype.getSubList = function(str,numero) {
 
     var res=[];
     var j=1;
@@ -125,24 +166,13 @@
    }
    return res[numero];
 }	
-	
-/*
- * Stores the questions, answers and the answer history
- */
 
-function QuestionBankModel(_simModel, _numerator, _denominator) {
-	// save a link to the model
-	this.simModel = _simModel;
-	// the number of questions the student needs to answer right...
-	this.numerator = _numerator;
-	// out of this many of the most recent questions asked
-	this.denominator = _denominator;
-	// we need to keep track of the last <x> answers we've gotten
-	// so we can test for mastery. we use an array as a queue that
-	// stores as many answers as we're willing to consider
-	this.resetAnswerHistory();
-	
-}
+
+
+
+
+
+
 
 
 QuestionBankModel.prototype.resetAnswerHistory = function() {
@@ -211,14 +241,14 @@ QuestionBankModel.prototype.checkAnswer = function (studentAnswer) {
  
 QuestionBankModel.prototype.chooseQuestion = function() {
 	
-	createQuestionA();
-	createQuestionB();
-	this.question ="Given: ~ ^^^^^^^^^^^^^^^^^^ val e = "+quest1+"  ~~ What is the value of " +quest2+" ? ";
+	this.createQuestionA();
+	this.createQuestionB();
+	this.question ="Given: ~ ^^^^^^^^^^^^^^^^^^ val e = "+this.quest1+"  ~~ What is the value of " +this.quest2+" ? ";
 	return this.question;
 
 	}
 
-function getRandomInt(min, max) {
+QuestionBankModel.prototype.getRandomInt = function(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
@@ -233,6 +263,6 @@ QuestionBankModel.prototype.setAnswers = function() {
 	// Reset answers array
 	this.answers = [];
 	//push the answer in
-	this.answers.push(answ);
+	this.answers.push(this.answ);
 	
 }

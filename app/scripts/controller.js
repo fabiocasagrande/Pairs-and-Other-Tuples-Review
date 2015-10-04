@@ -23,6 +23,15 @@ function SimController() {
 		denominator: 15,
 		firstQuestion: 0,
 		lastQuestion: 0,
+		
+		quest: [],
+		lengthQ1:5,
+		lengthInner:5,
+		quest1:"",
+		quest2:"",
+		maxx:"",
+		answ:"",
+		
 	});
 	// expose model data to Smart Sparrow
 	pipit.CapiAdapter.expose('mastery', this.simModel);
@@ -30,6 +39,13 @@ function SimController() {
 	pipit.CapiAdapter.expose('denominator', this.simModel);
 	pipit.CapiAdapter.expose('firstQuestion', this.simModel);
 	pipit.CapiAdapter.expose('lastQuestion', this.simModel);
+	pipit.CapiAdapter.expose('quest', this.simModel);
+	pipit.CapiAdapter.expose('lengthQ1', this.simModel);
+	pipit.CapiAdapter.expose('lengthInner', this.simModel);
+	pipit.CapiAdapter.expose('quest1', this.simModel);
+	pipit.CapiAdapter.expose('quest2', this.simModel);
+	pipit.CapiAdapter.expose('maxx', this.simModel);
+	pipit.CapiAdapter.expose('answ', this.simModel);
 	// let smart sparrow know that the sim is ready to accept values
 	pipit.Controller.notifyOnReady();
 	// create the view controller
@@ -68,8 +84,6 @@ SimController.prototype.setupDisplay = function() {
 	this.simModel.questionBank.setAnswers();
 	// draw the results for the last five questions
 	this.simView.questionBankView.drawAnswerHistory(this.simModel.questionBank.answerHistory);
-	// draw the fringe on the screen
-	this.simView.fringeView.drawFringe(this.simModel.fringe);
 	// display the next question
 	this.simView.questionBankView.presentQuestion(question);
 }

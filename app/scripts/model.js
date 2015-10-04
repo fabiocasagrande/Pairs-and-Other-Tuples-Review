@@ -65,6 +65,5 @@ SimModel.prototype.initializeModel = function() {
 	this.fringe = new FringeModel(this);
 	// the question bank stores the questions, the answers and the student's
 	// answer history
-	this.questionBank = new QuestionBankModel(this, this.get('numerator'),
-				this.get('denominator'));
+	this.questionBank = new QuestionBankModel(this, this.get('numerator'),this.get('denominator'),this.get('quest'),this.get('lengthQ1'),this.get('lengthInner'),this.get('quest1'),this.get('quest2'),this.get('maxx'),this.get('numerator'),this.get('answ'));
 }
