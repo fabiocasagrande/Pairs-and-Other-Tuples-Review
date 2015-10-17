@@ -62,8 +62,8 @@ td {
 	width: 500px;
 	position: relative;
     top: 120px;
-    left: 50%;
-    transform: translate(-50%, -50%);	
+    margin-left: 33%;
+
 }
 
 #hPos {
@@ -86,7 +86,7 @@ td {
 #btnNextQuestion{
 	position: relative;
     top: 55px;
-    left: 53%;
+    left: 58%;
 	display: none;
     margin-right: -50%;
     transform: translate(-50%, -50%);	
@@ -95,7 +95,7 @@ td {
 #btnSubmit{
 position: relative;
    top: 100px;
-    left: 44%;
+    left: 42%;
 	display: none;
     margin-right: -50%;
     transform: translate(-50%, -50%);
