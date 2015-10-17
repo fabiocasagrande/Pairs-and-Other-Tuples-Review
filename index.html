@@ -11,39 +11,51 @@
 
 	</head>
 	<body>				
-		<div class="starter-template">
+		<div id="cont">
 			     <p align="center" id="testTitle">Pairs and Other Tuples Review</p>
 					
 			
-			<div  id="cont" class="container">
+		
 		   
-				<div class="row" id="groupPosition">
 				
-					<div  class="form-group">
+				
+					
 						
 						<text id="outro">Good Job! You Made It!!</text>
-						<img id="ok" src="ok.png"></img>
-						<text id="intro">Welcome! Press the "Start App" button to begin the test</text>
-						<label id="lblQuestion"></label>
-						<input type="text" class="form-control" placeholder="Answer here" id="txtAnswer">
-						<button id="btnStart" type="button" class="btn btn-primary">Start App</button>
-						<button id="btnSubmit" type="button" class="btn btn-primary" disabled="true">Submit</button>
-						<button id="btnNextQuestion" type="button" class="btn btn-primary" disabled="true">Next Question</button>
-					</div>
+						<img id="ok" src="Ok.png"></img>
+						<div id="intro"><p>Welcome! Press the "Start App" button to begin the test</p></div>
+						
+						
+						
+						<div id="q">
+						<label class="row" id="lblQuestion"></label>
+						
+						<input class="row" type="text" placeholder="Answer here" id="txtAnswer">
+						
+						
 					
-				</div>
+					
+			
 
 				<div class="row">
 					<div id="txtFeedback">
 					</div>
 				</div>
+				
+				
+				
+				
+				</div>
+				       <button id="btnStart" type="button" class="btn btn-primary">Start App</button>
+						<p><button id="btnSubmit" type="button" class="btn btn-primary" disabled="true">Submit</button>
+						<button id="btnNextQuestion" type="button" class="btn btn-primary" disabled="true">Next Question</button></p>
 
 				<div class="row" >
 					<h4 id="hPos">Answer History</h4>
 					<div id="history" class='answerHistory'></div>
 				</div>
 
-			</div>
+			
 		</div>
 
 		<script src="https://d1rpkia8qpfj4t.cloudfront.net/js/pipit-0.62.min.js"></script>

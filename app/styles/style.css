@@ -60,20 +60,17 @@ td {
 #history {
 	height: 100px; 
 	width: 500px;
-	position: absolute;
-    top: 80%;
+	position: relative;
+    top: 120px;
     left: 50%;
-    margin-right: -50%;
     transform: translate(-50%, -50%);	
 }
 
 #hPos {
-	position: absolute;
-    top: 70%;
-    left: 43%;
-    margin-right: -50%;
+	position: relative;
+	top:60px;
+	text-align:center;
 	display:none;
-    transform: translate(-50%, -50%);	
 }
 
 #groupPosition {
@@ -87,18 +84,18 @@ td {
 }
 
 #btnNextQuestion{
-	position: absolute;
-    top: 20%;
-    left: 50%;
+	position: relative;
+    top: 55px;
+    left: 53%;
 	display: none;
     margin-right: -50%;
     transform: translate(-50%, -50%);	
 }
 
 #btnSubmit{
-	position: absolute;
-    top: 20%;
-    left: 34%;
+position: relative;
+   top: 100px;
+    left: 44%;
 	display: none;
     margin-right: -50%;
     transform: translate(-50%, -50%);
@@ -106,7 +103,7 @@ td {
 
 #btnStart{
 	position: absolute;
-    top: 20%;
+    top: 40%;
     left: 50%;
     margin-right: -50%;
 	display: block;
@@ -114,21 +111,21 @@ td {
 }
 
 #lblQuestion{	
-	position: absolute;
-    top: -20%;
+	
     left:50;
 }
 
 #txtFeedback{
-	position: absolute;
+	
 	top: 320px;
     left:150px;	
 }
 
 #intro{
-	position: absolute;
+	
 	font-size: 130%;
-	margin-left:180px;
+	margin-top:100px;
+	text-align:center;
 }
 
 #testTitle{
@@ -138,22 +135,26 @@ td {
 	
 }
 
+
+
+
 #outro{
 	
 	position: absolute;
 	font-size: 130%;
-	margin-left:180px;
+	margin-left:45%;
 	display:none;
-    
+    margin-top:180px;
 }
 
 #ok{
 	
 	position: absolute;
-	margin-left:210px;
+	margin-left:45%;
 	display:none;
-    
+    margin-top:200px;
 }
+
 
 
 
@@ -162,11 +163,17 @@ td {
 	display: none;
 }
 
-#cont{
-	position:relative;
-	margin-left:center;
-	margin-top: center;
-	height: 800px; 
-	width: 800px;
-}
 
+#cont{
+	position:absolute;
+	height:100%;
+  width:100%;
+  
+}
+#q{
+	margin-left:38%;
+	margin-top:100px;
+	
+	
+	
+}

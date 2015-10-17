@@ -243,7 +243,7 @@ QuestionBankModel.prototype.chooseQuestion = function() {
 	
 	this.createQuestionA();
 	this.createQuestionB();
-	this.question ="Given: ~ ^^^^^^^^^^^^^^^^^^ val e = "+this.quest1+"  ~~ What is the value of " +this.quest2+" ? ";
+	this.question ="Given: ~ ^^^^^ val e = "+this.quest1+"  ~~ What is the value of " +this.quest2+" ? ";
 	return this.question;
 
 	}
