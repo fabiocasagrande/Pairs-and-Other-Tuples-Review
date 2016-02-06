@@ -36,7 +36,7 @@ SimView.prototype.setupControls = function() {
 		$( "#btnStart" ).prop('disabled', true);
 		// enable submit button
 		$( "#btnSubmit" ).prop('disabled', false);
-		
+		document.getElementById("testTitle").style.display = "none";
 		document.getElementById("hPos").style.display = "block";
 		document.getElementById("txtAnswer").style.display = "block";
 		document.getElementById("btnSubmit").style.display = "block";
